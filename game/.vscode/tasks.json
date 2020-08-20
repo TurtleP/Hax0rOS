@@ -1,0 +1,55 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Clean Game",
+            "type": "shell",
+            "command": "if (Test-Path $pwd/../build) { Remove-Item $pwd/../build -Recurse }",
+            "group": "build",
+            "presentation": {
+                "reveal": "silent",
+                "clear": true
+            }
+        },
+
+        {
+            "label": "Build Directory",
+            "type": "shell",
+            "command": "if (-not (Test-Path $pwd/../build)) { New-Item -Path $pwd/../build -ItemType 'directory' }",
+            "presentation": {
+                "reveal": "silent",
+                "clear": true
+            }
+        },
+
+        {
+            "label": "Zip Game",
+            "type": "shell",
+            "command": "Compress-Archive -Path ../game/* -Destination $pwd/../build/game.zip",
+            "group": "build",
+            "dependsOn": [
+                "Build Directory"
+            ],
+            "presentation": {
+                "reveal": "silent",
+                "clear": true
+            }
+        },
+
+        {
+            "label": "Build Game",
+            "type": "shell",
+            "command": "Rename-Item -Path ./build/game.zip -NewName ./build/game.love",
+            "group": "build",
+            "dependsOn": [
+                "Zip Game"
+            ],
+            "presentation": {
+                "reveal": "silent",
+                "clear": true
+            }
+        }
+    ]
+}

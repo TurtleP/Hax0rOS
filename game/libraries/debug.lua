@@ -25,8 +25,8 @@ function DebugDraw:draw()
 
     if not self.fpsOnly then
         for _, entity in ipairs(physics:getEntities()) do
-            local bounds = entity:bounds()
-            wireframe(self.zoom, 1, unpack(bounds))
+            local x, y, w, h = entity:bounds()
+            wireframe(self.zoom, 1, x, y, w, h)
         end
     end
 

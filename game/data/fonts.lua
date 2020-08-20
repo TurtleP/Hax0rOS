@@ -1,5 +1,12 @@
-local Fonts = {}
+local fonts = {}
 
-Fonts.Main = love.graphics.newFont("graphics/GohuMedium.ttf", 24)
+fonts.main = love.graphics.newFont("graphics/GohuMedium11.ttf", 22)
+fonts.bigFont = love.graphics.newFont("graphics/GohuMedium11.ttf", 33)
 
-return Fonts
+-- ATTRIBUTES --
+
+fonts.SMALL = {}
+fonts.SMALL.WIDTH  = fonts.main:getWidth(" ")
+fonts.SMALL.HEIGHT = fonts.main:getHeight()
+
+return fonts
