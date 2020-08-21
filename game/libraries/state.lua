@@ -107,7 +107,7 @@ function state.gamepadpressed(joy, button)
 end
 
 function state.gamepadreleased(joy, button)
-    if not state.isCurrentStateValid("gamepadpressed") then
+    if not state.isCurrentStateValid("gamepadreleased") then
         return
     end
 
@@ -134,6 +134,10 @@ function state.call(func, ...)
             return ret
         end
     end
+end
+
+function state.set(field, value)
+    state.current[field] = value
 end
 
 function state.unload()

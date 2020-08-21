@@ -25,7 +25,9 @@ function Entity:update(dt)
 end
 
 function Entity:draw()
-    error("Entity.draw not implemented!")
+    if not self.flags.noDraw then
+        error("Entity.draw not implemented!")
+    end
 end
 
 function Entity:debugDraw()
@@ -71,7 +73,7 @@ function Entity:gravity()
     return 360
 end
 
-function Entity:removed()
+function Entity:remove()
     return self.flags.remove
 end
 
@@ -87,8 +89,17 @@ function Entity:bounds()
     return self.x, self.y, self.width, self.height
 end
 
-function Entity:center()
-    local x, y = self.x + (self.width / 2), self.y + (self.height / 2)
+function Entity:center(which)
+    local x = self.x + (self.width / 2)
+    local y = self.y + (self.height / 2)
+
+    if which == "x" then
+        return x
+    end
+
+    if which == "y" then
+        return y
+    end
 
     return Vector(x, y)
 end

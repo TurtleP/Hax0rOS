@@ -59,4 +59,8 @@ function Background:draw()
     love.graphics.draw(self.texture, self.quads[self.quadi], self.main.x, self.main.y)
 end
 
+function Background:__tostring()
+    return "matrix"
+end
+
 return Background

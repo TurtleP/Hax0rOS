@@ -1,17 +1,20 @@
 local nest  = require("libraries.nest")
-local state = require("libraries.state")
+state = require("libraries.state")
 
 fonts = require("data.fonts")
 audio = require("data.audio")
 
-local debug = require("libraries.debug")
+debug = require("libraries.debug")
 
 function love.load()
-    nest.init("hac")
+    -- nest.init("hac")
 
     vars = require("data.vars")
 
     state.switch("menu")
+
+    love.graphics.setBackgroundColor(0.05, 0.05, 0.05)
+    love.audio.setVolume(0.5)
 end
 
 function love.update(dt)
@@ -20,7 +23,6 @@ end
 
 function love.draw()
     state.draw()
-    debug:draw()
 end
 
 function love.gamepadaxis(joy, axis, value)
@@ -29,8 +31,12 @@ end
 
 function love.gamepadpressed(joy, button)
     if button == "back" then
-        debug:toggle("fps")
+        debug:toggle()
     end
 
     state.gamepadpressed(joy, button)
+end
+
+function love.gamepadreleased(joy, button)
+    state.gamepadreleased(joy, button)
 end

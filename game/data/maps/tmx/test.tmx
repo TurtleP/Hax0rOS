@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.4" tiledversion="1.4.1" orientation="orthogonal" renderorder="right-down" width="40" height="23" tilewidth="32" tileheight="32" infinite="0" nextlayerid="3" nextobjectid="6">
+ <editorsettings>
+  <export target="../lua/test.lua" format="lua"/>
+ </editorsettings>
+ <properties>
+  <property name="matrix" type="bool" value="true"/>
+ </properties>
+ <tileset firstgid="1" source="../tiles.tsx"/>
+ <layer id="1" name="Tile Layer 1" width="40" height="23">
+  <data encoding="base64" compression="zstd">
+   KLUv/WBgDd0CAFgBAAAAAQEBAQEBACigoK8A4IKaMR6ZRRUfqXLTT0ggjMxVucW4SRbENY+SIqAXc7IC6wqJSDkXsxzYZUeigINHrONu0CdpxPyvWy+4QJeJ1pLwI1WllO5M5R8=
+  </data>
+ </layer>
+ <objectgroup id="2" name="Object Layer 1" visible="0">
+  <object id="1" name="player" x="608" y="320" width="32" height="32"/>
+  <object id="2" name="tile" x="32" y="0" width="1216" height="32"/>
+  <object id="3" name="tile" x="32" y="704" width="1216" height="32"/>
+  <object id="4" name="tile" x="0" y="0" width="32" height="736"/>
+  <object id="5" name="tile" x="1248" y="0" width="32" height="736"/>
+ </objectgroup>
+</map>

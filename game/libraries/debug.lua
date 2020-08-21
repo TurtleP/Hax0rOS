@@ -16,7 +16,7 @@ function DebugDraw:init()
     return self
 end
 
-function DebugDraw:draw()
+function DebugDraw:draw(physics)
     if not self.active then
         return
     end

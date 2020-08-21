@@ -43,7 +43,7 @@ function Menu:load()
     local text =
     {
         {"NEW HACK", function()
-
+            state.switch("game")
         end},
         {"VIEW CREDITS", function()
 
@@ -136,6 +136,13 @@ end
 
 function Menu:unload()
     self.logo = nil
+
+    self.strings = nil
+    self.background = nil
+    self.logoPosition = nil
+    self.logoQuads = nil
+
+    self.buttons = nil
 
     self.audio:stop()
     self.audio = nil
